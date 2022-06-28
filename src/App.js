@@ -23,7 +23,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout setToken={setToken}/>}>
           <Route index element={<Dashboard />} />
           <Route path="user" element={<UserIndex />} >
             <Route index element={<UserList />} />

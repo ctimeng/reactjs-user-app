@@ -1,19 +1,31 @@
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+import React, { useState } from 'react';
+
 const Edit = () => {
-    return <form>
+    const navigate = useNavigate();
+
+    const [username, setUserName] = useState();
+    const [password, setPassword] = useState();
+  
+    const handleSubmit = async e => {
+      e.preventDefault();
+      navigate("/user");
+    }
+
+    return <form onSubmit={handleSubmit}>
         <div className="card-body">
             <div className="form-group">
-                <label for="exampleInputEmail1">Username</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Enter Username" />
+                <label for="username">Username</label>
+                <input type="email" className="form-control" id="username" placeholder="Enter Username" />
             </div>
             <div className="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                <label for="password">Password</label>
+                <input type="password" className="form-control" id="password" placeholder="Enter Password" />
             </div>
         </div>
         <div className="card-footer">
             <button type="submit" className="btn btn-primary">Submit</button>
-            <Link to={{pathname: `/user`}} className='btn btn-danger'>Cancel</Link>
+            <Link to={{pathname: `/user`}} className='btn btn-danger float-right'>Cancel</Link>
         </div>
     </form>;
 };

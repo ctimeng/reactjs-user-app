@@ -27,12 +27,12 @@ export default function List() {
   })
   return (
     <div>
-      <div className='row'>
+      <div className='row mb-3'>
         <div className='col-xl-12'>
           <Link to={{ pathname: `/user/create` }} className='btn btn-primary'>Create</Link>
         </div>
       </div>
-      <div className='row'>
+      <div className='row mb-3'>
         <div className='col-xl-12'>
           <input type='text' className='form-control' onChange={event => setQuery(event.target.value)} />
         </div>

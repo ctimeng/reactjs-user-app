@@ -1,10 +1,19 @@
-import {Outlet} from "react-router-dom";
+import {Outlet, useNavigate} from "react-router-dom";
 import {useEffect} from 'react';
 
-const Layout = () => {
+const Layout = ({ setToken }) => {
+
+    const navigate = useNavigate();
+
     useEffect(() => {
         document.body.classList.remove('login-page')
     })
+
+    const handleLogout = async e => {
+        e.preventDefault();
+        setToken({});
+        navigate("/");
+    }
 
     return (
         <div className="wrapper">
@@ -12,12 +21,6 @@ const Layout = () => {
                 <ul className="navbar-nav">
                     <li className="nav-item">
                         <a className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars"></i></a>
-                    </li>
-                    <li className="nav-item d-none d-sm-inline-block">
-                        <a href="index3.html" className="nav-link">Home</a>
-                    </li>
-                    <li className="nav-item d-none d-sm-inline-block">
-                        <a href="#" className="nav-link">Contact</a>
                     </li>
                 </ul>
                 <ul className="navbar-nav ml-auto">
@@ -70,27 +73,35 @@ const Layout = () => {
                                 </ul>
                             </li>
 
-                            <li class="nav-item">
-                                <a href="/user" class="nav-link">
-                                    <i class="nav-icon fas fa-user"></i>
+                            <li className="nav-item">
+                                <a href="/user" className="nav-link">
+                                    <i className="nav-icon fas fa-user"></i>
                                     <p>
                                         User
                                     </p>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="/role" class="nav-link">
-                                    <i class="nav-icon fas fa-user"></i>
+                            <li className="nav-item">
+                                <a href="/role" className="nav-link">
+                                    <i className="nav-icon fas fa-chalkboard-user"></i>
                                     <p>
                                         Role
                                     </p>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="/permission" class="nav-link">
-                                    <i class="nav-icon fas fa-user"></i>
+                            <li className="nav-item">
+                                <a href="/permission" className="nav-link">
+                                    <i className="nav-icon fas fa-book-open-reader"></i>
                                     <p>
                                         Permission
+                                    </p>
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="#" className="nav-link" onClick={handleLogout}>
+                                    <i className="nav-icon fas fa-arrow-right-from-bracket"></i>
+                                    <p>
+                                        Logout
                                     </p>
                                 </a>
                             </li>
