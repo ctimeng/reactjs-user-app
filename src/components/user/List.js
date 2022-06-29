@@ -59,7 +59,10 @@ export default function List() {
             <tbody>
               {
                 filteredData.map((user) => (
-                  <tr><td>{user.name}</td><td><Link to={{ pathname: `/user/${user.id}/edit` }}>Edit</Link></td></tr>
+                  <tr>
+                    <td>{user.name}</td>
+                    <td><Link to={{ pathname: `/user/${user.id}/edit` }}>Edit</Link></td>
+                  </tr>
                 ))
               }
             </tbody>

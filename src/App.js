@@ -14,6 +14,10 @@ import NoPage from './components/NoPage'
 import useToken from './useToken'
 import "admin-lte/dist/css/adminlte.min.css"
 import "admin-lte/dist/js/adminlte.min.js"
+import TodoIndex from './components/todo/Index'
+import TodoList from './components/todo/List'
+import TodoEdit from './components/todo/Edit'
+import TodoCreate from './components/todo/Create'
 
 function App() {
   const { token, setToken } = useToken();
@@ -32,6 +36,11 @@ function App() {
           </Route>
           <Route path="role" element={<RoleList />} />
           <Route path="permission" element={<Permission />} />
+          <Route path="todo" element={<TodoIndex />} >
+            <Route index element={<TodoList />} />
+            <Route path=":id/edit" element={<TodoEdit />} />
+            <Route path="create" element={<TodoCreate />} />
+          </Route>
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

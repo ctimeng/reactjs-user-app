@@ -1,6 +1,9 @@
 const express = require('express');
 const cors = require('cors')
 const app = express();
+const LocalStorage = require('node-localstorage').LocalStorage,
+  localStorage = new LocalStorage('./scratch');
+const store = require("store2");
 
 app.use(cors());
 
@@ -40,5 +43,11 @@ app.use('/permission', (req, res) => {
   ]);
 });
 
-app.listen(8080, () => console.log('API is running on http://localhost:8080'));
+app.listen(8080, () => {
+  //localStorage.setItem('myFirstKey', 'myFirstValue')
+  //console.log(localStorage.getItem('myFirstKey'))
+  store.set('user', { name:'Marcus' })
+  console.log(store.get('user'))
+  console.log('API is running on http://localhost:8080')
+});
 /*node server.js*/

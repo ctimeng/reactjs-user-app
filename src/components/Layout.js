@@ -98,6 +98,14 @@ const Layout = ({ setToken }) => {
                                 </a>
                             </li>
                             <li className="nav-item">
+                                <a href="/todo" className="nav-link">
+                                    <i className="nav-icon fas fa-book-open-reader"></i>
+                                    <p>
+                                        Todo
+                                    </p>
+                                </a>
+                            </li>
+                            <li className="nav-item">
                                 <a href="#" className="nav-link" onClick={handleLogout}>
                                     <i className="nav-icon fas fa-arrow-right-from-bracket"></i>
                                     <p>
